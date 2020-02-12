@@ -9,6 +9,7 @@ const url =
 
 function displayWord(hangman) {
   const currentLettersString = hangman.currentLetters.join(" ");
+  console.log(currentLettersString);
   $("#letter-display").text(currentLettersString);
 }
 
@@ -27,18 +28,21 @@ function newGame(hangman) {
       const word = data[0][0];
       hangman.setWord(word);
       console.log(hangman);
+    })
+    .then(function() {
+      displayWord(hangman);
     });
 }
 
 $(document).ready(function() {
   let hangman = new DinoHangman();
-  newGame(hangman);
   $(".letter-buttons").hide();
 
   $("#new-game").click(function(event) {
     event.preventDefault();
-    displayWord(hangman);
+    newGame(hangman);
     $(".letter-buttons").show();
+    $(`.letters`).prop("disabled", false);
   });
 
   $(".letters").click(function(event) {

@@ -15,6 +15,7 @@ export class DinoHangman {
   }
 
   initializeLetters() {
+    this.currentLetters = [];
     for (let i = 0; i < this.length; i++) {
       this.currentLetters.push("-");
     }
