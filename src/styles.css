@@ -1,19 +1,29 @@
 /* 
 green: #698001
+darker green: #495807
 blue:  #34495E
+grey: #CCCCCC
 */
 
-.container {
-  border: 1px solid red;
-  min-height: 800px;
-  margin-top: 30px;
+body {
+  background-color: #495807;
 }
 
-.letter-display {
-  border: 1px solid blue;
-  height: 10px;
-  width: 10px;
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   padding: 20px;
+  min-height: 800px;
+  margin-top: 30px;
+  background-color: #34495e;
+  color: #cccccc;
+}
+
+h1 {
+  color: white;
+  text-decoration: underline;
+  text-decoration-color: #698001;
 }
 
 .dino-fail {
@@ -35,10 +45,62 @@ blue:  #34495E
 }
 
 .final-failure {
-  height: 500px;
+  height: 300px;
   width: 500px;
   background-size: 500px;
   background-image: url(../src/img/dead-dino.jpg);
   background-position: center;
   background-repeat: no-repeat;
+}
+
+.btn {
+  background-color: #698001;
+  border: 3px solid #495807;
+  padding: 20px 10px;
+  border-radius: 0;
+  color: white;
+  font-size: 1.2em;
+}
+
+#letter-display {
+  padding: 20px;
+  font-size: 2em;
+}
+
+#letter-buttons {
+  height: 150px;
+  width: 680px;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.letters {
+  padding: 10px 10px;
+  width: 40px;
+  margin: 5px;
+}
+
+#btn-container {
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+}
+
+#fail-label {
+  width: 100%;
+  text-align: center;
+  padding: 10px;
+  font-size: 1.8em;
+}
+
+#fail-counter {
+  border: 5px solid #698001;
+  background-color: #cccccc;
+  padding: 20px;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  min-height: 300px;
+  margin: 20px;
 }

@@ -19,7 +19,6 @@ function displayFails(hangman) {
     $("#fail-counter").append(`<div class="dino-win"></div>`);
   } else {
     if (!hangman.loseCheck()) {
-      $("#fail-counter").text("Failed Attempts:");
       for (let i = 0; i < hangman.fails; i++) {
         $("#fail-counter").append(`<div class="dino-fail"></div>`);
       }
@@ -36,10 +35,10 @@ function guessLetter(letter, hangman) {
   if (hangman.loseCheck()) {
     $(`.letters`).prop("disabled", true);
     $("#letter-display").append(
-      `<br>${hangman.word
+      `<p>${hangman.word
         .toLowerCase()
         .split("")
-        .join(" ")}`
+        .join(" ")}</p>`
     );
   } else {
     if (hangman.winCheck()) {
@@ -65,13 +64,13 @@ function newGame(hangman) {
 $(document).ready(function() {
   let hangman = new DinoHangman();
   $(".letter-buttons").hide();
+  $(".letters").prop("disabled", true);
 
   $("#new-game").click(function(event) {
     event.preventDefault();
     newGame(hangman);
     hangman.resetFails();
     $("#fail-counter").empty();
-    $("#fail-counter").text("Failed Attempts:");
     $(".letter-buttons").show();
     $(`.letters`).prop("disabled", false);
   });
