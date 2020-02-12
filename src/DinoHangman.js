@@ -5,22 +5,6 @@ export class DinoHangman {
     this.fails = 0;
   }
 
-  initializeLetters() {
-    for (let i = 0; i < this.length; i++) {
-      this.currentLetters.push("-");
-    }
-  }
-
-  updateCurrentLetters(letter) {
-    for (let i = 0; i < this.length; i++) {
-      if (this.word[i].toLowerCase() === letter.toLowerCase()) {
-        this.currentLetters[i] = letter;
-      } else {
-        this.fails++;
-      }
-    }
-  }
-
   setWord(word) {
     this.word = word;
     this.initializeLetters();
@@ -30,5 +14,28 @@ export class DinoHangman {
     return this.word.length;
   }
 
-  winCheck() {}
+  initializeLetters() {
+    for (let i = 0; i < this.length; i++) {
+      this.currentLetters.push("-");
+    }
+  }
+
+  updateCurrentLetters(letter) {
+    let letterFound = false;
+    for (let i = 0; i < this.length; i++) {
+      if (this.word[i].toLowerCase() === letter.toLowerCase()) {
+        this.currentLetters[i] = letter;
+        letterFound = true;
+      }
+    }
+    if (!letterFound) this.fails++;
+  }
+
+  loseCheck() {
+    return this.fails === 10 ? true : false;
+  }
+
+  winCheck() {
+    return this.currentLetters.join("") === this.word ? true : false;
+  }
 }
