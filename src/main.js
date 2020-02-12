@@ -13,10 +13,39 @@ function displayWord(hangman) {
   $("#letter-display").text(currentLettersString);
 }
 
+function displayFails(hangman) {
+  $("#fail-counter").empty();
+  if (hangman.winCheck()) {
+    $("#fail-counter").append(`<div class="dino-win"></div>`);
+  } else {
+    if (!hangman.loseCheck()) {
+      $("#fail-counter").text("Failed Attempts:");
+      for (let i = 0; i < hangman.fails; i++) {
+        $("#fail-counter").append(`<div class="dino-fail"></div>`);
+      }
+    } else {
+      $("#fail-counter").append(`<div class="final-failure"></div>`);
+    }
+  }
+}
+
 function guessLetter(letter, hangman) {
   hangman.updateCurrentLetters(letter);
   displayWord(hangman);
   $(`#${letter}`).prop("disabled", true);
+  if (hangman.loseCheck()) {
+    $(`.letters`).prop("disabled", true);
+    $("#letter-display").append(
+      `<br>${hangman.word
+        .toLowerCase()
+        .split("")
+        .join(" ")}`
+    );
+  } else {
+    if (hangman.winCheck()) {
+      $(`.letters`).prop("disabled", true);
+    }
+  }
 }
 
 function newGame(hangman) {
@@ -48,5 +77,6 @@ $(document).ready(function() {
   $(".letters").click(function(event) {
     event.preventDefault();
     guessLetter(this.id, hangman);
+    displayFails(hangman);
   });
 });

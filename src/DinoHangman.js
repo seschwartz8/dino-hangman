@@ -37,6 +37,8 @@ export class DinoHangman {
   }
 
   winCheck() {
-    return this.currentLetters.join("") === this.word ? true : false;
+    return this.currentLetters.join("") === this.word.toLowerCase()
+      ? true
+      : false;
   }
 }

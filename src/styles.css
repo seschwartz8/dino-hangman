@@ -10,3 +10,30 @@
   width: 10px;
   padding: 20px;
 }
+
+.dino-fail {
+  height: 100px;
+  width: 100px;
+  background-size: 100px;
+  background-image: url(../src/img/dino.png);
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.dino-win {
+  height: 500px;
+  width: 500px;
+  background-size: 500px;
+  background-image: url(../src/img/win-dino.jpeg);
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.final-failure {
+  height: 500px;
+  width: 500px;
+  background-size: 500px;
+  background-image: url(../src/img/dead-dino.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+}
