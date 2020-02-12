@@ -1,0 +1,9 @@
+.container {
+  border: 1px solid red;
+  min-height: 800px;
+  margin-top: 30px;
+}
+
+.letter-display {
+  border: 1px solid blue;
+}
