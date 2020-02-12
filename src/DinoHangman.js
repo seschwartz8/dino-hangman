@@ -2,6 +2,7 @@ export class DinoHangman {
   constructor() {
     this.word = "";
     this.currentLetters = [];
+    this.fails = 0;
   }
 
   initializeLetters() {
@@ -14,6 +15,8 @@ export class DinoHangman {
     for (let i = 0; i < this.length; i++) {
       if (this.word[i].toLowerCase() === letter.toLowerCase()) {
         this.currentLetters[i] = letter;
+      } else {
+        this.fails++;
       }
     }
   }
@@ -26,4 +29,6 @@ export class DinoHangman {
   get length() {
     return this.word.length;
   }
+
+  winCheck() {}
 }

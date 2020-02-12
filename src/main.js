@@ -33,10 +33,12 @@ function newGame(hangman) {
 $(document).ready(function() {
   let hangman = new DinoHangman();
   newGame(hangman);
+  $(".letter-buttons").hide();
 
   $("#new-game").click(function(event) {
     event.preventDefault();
     displayWord(hangman);
+    $(".letter-buttons").show();
   });
 
   $(".letters").click(function(event) {
