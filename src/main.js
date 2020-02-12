@@ -56,7 +56,6 @@ function newGame(hangman) {
     .then(function(data) {
       const word = data[0][0];
       hangman.setWord(word);
-      console.log(hangman);
     })
     .then(function() {
       displayWord(hangman);
@@ -70,6 +69,9 @@ $(document).ready(function() {
   $("#new-game").click(function(event) {
     event.preventDefault();
     newGame(hangman);
+    hangman.resetFails();
+    $("#fail-counter").empty();
+    $("#fail-counter").text("Failed Attempts:");
     $(".letter-buttons").show();
     $(`.letters`).prop("disabled", false);
   });

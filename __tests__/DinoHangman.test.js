@@ -39,4 +39,10 @@ describe("DinoHangman", () => {
     hangman.currentLetters = ["h", "i"];
     expect(hangman.winCheck()).toEqual(true);
   });
+
+  test("should reset fails to zero", () => {
+    hangman.fails = 3;
+    hangman.resetFails();
+    expect(hangman.fails).toEqual(0);
+  });
 });

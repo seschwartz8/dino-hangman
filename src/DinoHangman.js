@@ -41,4 +41,8 @@ export class DinoHangman {
       ? true
       : false;
   }
+
+  resetFails() {
+    this.fails = 0;
+  }
 }
