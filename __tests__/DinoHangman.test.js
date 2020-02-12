@@ -14,7 +14,7 @@ describe("DinoHangman", () => {
   });
 
   test("should replace '-' in currentLetters with actual letter if guess is correct", () => {
-    hangman.guessLetter("l");
+    hangman.updateCurrentLetters("l");
     expect(hangman.currentLetters).toEqual(["-", "-", "l", "l", "-"]);
   });
 });

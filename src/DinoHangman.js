@@ -13,9 +13,9 @@ export class DinoHangman {
     return letters;
   }
 
-  guessLetter(letter) {
+  updateCurrentLetters(letter) {
     for (let i = 0; i < this.length; i++) {
-      if (this.word[i] === letter) {
+      if (this.word[i].toLowerCase() === letter.toLowerCase()) {
         this.currentLetters[i] = letter;
       }
     }
