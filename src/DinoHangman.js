@@ -1,16 +1,13 @@
 export class DinoHangman {
-  constructor(word) {
-    this.word = word;
-    this.length = this.word.length;
-    this.currentLetters = this.initializeLetters();
+  constructor() {
+    this.word = "";
+    this.currentLetters = [];
   }
 
   initializeLetters() {
-    let letters = [];
     for (let i = 0; i < this.length; i++) {
-      letters.push("-");
+      this.currentLetters.push("-");
     }
-    return letters;
   }
 
   updateCurrentLetters(letter) {
@@ -19,5 +16,14 @@ export class DinoHangman {
         this.currentLetters[i] = letter;
       }
     }
+  }
+
+  setWord(word) {
+    this.word = word;
+    this.initializeLetters();
+  }
+
+  get length() {
+    return this.word.length;
   }
 }
